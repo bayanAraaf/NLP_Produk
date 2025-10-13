@@ -1,0 +1,115 @@
+# 🗣️ Yelp Review Sentiment Analysis
+
+Proyek ini bertujuan untuk menganalisis sentimen dari review pengguna Yelp menggunakan pendekatan supervised learning berbasis teks. Dataset sangat besar (±4GB), sehingga dilakukan sampling, preprocessing, modeling, dan visualisasi untuk membangun sistem klasifikasi dan chatbot sederhana.
+
+---
+
+## 📁 Dataset
+
+- **Sumber**: [Kaggle - Yelp Open Dataset](https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset)
+- **File**: `review.json`
+- **Deskripsi**: Dataset berisi jutaan review pengguna, rating bintang, dan metadata bisnis dari platform Yelp.
+- **Lisensi**: Tersedia untuk keperluan riset dan non-komersial.
+
+---
+
+## ⚙️ Tools & Teknologi
+
+- Python (Pandas, NumPy, Scikit-learn, NLTK, Matplotlib, Seaborn, WordCloud)
+- TF-IDF Vectorizer untuk ekstraksi fitur teks
+- Logistic Regression untuk klasifikasi
+- Joblib untuk menyimpan model
+- Jupyter Notebook / VS Code
+
+---
+
+## 🎯 Tujuan Analisis
+
+- Sampling data besar menggunakan reservoir sampling
+- Labeling sentimen berdasarkan rating bintang
+- Preprocessing teks (tokenisasi, stopwords, lemmatization)
+- Ekstraksi fitur dengan TF-IDF
+- Training dan evaluasi model klasifikasi
+- Visualisasi distribusi dan kata dominan
+- Pembuatan chatbot sederhana berbasis model sentimen
+
+---
+
+## 🔍 Langkah Kerja
+
+1. **Sampling & Loading**
+   - Mengambil 50.000 review acak dari file JSON besar
+   - Memilih kolom `text` dan `stars`
+
+2. **Labeling Sentimen**
+   - ⭐ 4–5 → `positive`
+   - ⭐ 3 → `neutral`
+   - ⭐ 1–2 → `negative`
+
+3. **Preprocessing Teks**
+   - Tokenisasi, POS tagging, lemmatization
+   - Stopwords filtering (termasuk kata umum seperti "food", "place", "restaurant")
+
+4. **EDA & Visualisasi**
+   - Distribusi rating dan sentimen
+   - Histogram panjang review
+   - Pie chart distribusi sentimen dan rating
+   - WordCloud untuk review positif dan negatif
+
+5. **Modeling**
+   - TF-IDF vectorization (max_features=20.000, ngram 1–2)
+   - Logistic Regression dengan `class_weight="balanced"`
+   - Evaluasi: Accuracy, Classification Report, Confusion Matrix
+
+6. **Interpretasi**
+   - Top 10 kata paling berpengaruh untuk masing-masing kelas sentimen
+
+7. **Chatbot**
+   - Fungsi `chatbot_response()` untuk mengklasifikasikan input teks dan memberi respons sesuai sentimen
+
+8. **Model Persistence**
+   - Menyimpan model dan vectorizer dengan `joblib.dump()`
+
+---
+
+## 📈 Visualisasi
+
+- Bar chart distribusi rating dan sentimen
+- Histogram panjang review
+- Pie chart distribusi sentimen dan rating
+- WordCloud untuk kata dominan di review positif dan negatif
+- Confusion Matrix model klasifikasi
+
+---
+
+## 🧠 Insight
+
+- Mayoritas review bersentimen positif
+- Kata-kata seperti “great”, “amazing”, “friendly” dominan di review positif
+- Kata-kata seperti “bad”, “slow”, “rude” dominan di review negatif
+- Logistic Regression cukup efektif untuk klasifikasi teks dengan preprocessing yang baik
+
+---
+
+## 🚀 Cara Menjalankan
+
+1. Pastikan semua dependensi terinstal:
+   ```bash
+   pip install pandas numpy scikit-learn nltk matplotlib seaborn wordcloud joblib
+
+2.  Unduh dan ekstrak dataset Yelp dari Kaggle
+
+3. Jalankan Notebook:
+   jupyter notebook yelp_sentiment_analysis.ipynb
+
+4. Unduh resource NLTK (cukup sekali):
+   import nltk
+   nltk.download('stopwords')
+   nltk.download('punkt')
+   nltk.download('wordnet')
+   nltk.download('averaged_perceptron_tagger')
+
+📎 Attribution & Credits
+- Dataset: Yelp Open Dataset oleh Yelp Inc. via Kaggle
+- Lisensi: Untuk keperluan riset dan non-komersial
+- Pengembangan Proyek: Oleh Bayan sebagai eksplorasi klasifikasi teks, NLP, dan chatbot berbasis sentimen
