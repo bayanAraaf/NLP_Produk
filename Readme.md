@@ -180,23 +180,6 @@ Aplikasi ini adalah chatbot interaktif berbasis Streamlit yang memprediksi senti
 
 ## 🧪 Cara Menjalankan
 
-1. **Instalasi dependensi**
-   ```bash
-   pip install streamlit scikit-learn pandas numpy nltk matplotlib seaborn wordcloud joblib
-
-2. Unduh resource NLTK (sekali saja)
-   import nltk
-   nltk.download('stopwords')
-   nltk.download('punkt')
-   nltk.download('wordnet')
-   nltk.download('averaged_perceptron_tagger')
-
-3. Jalankan aplikasi Streamlit
-   cd "C:\Users\HYPE AMD\latihan"
-   python -m streamlit run jupiter/project/project3.py
-
-
-📎 Attribution & Credits- Dataset: Yelp Open Dataset oleh Yelp Inc. via Kaggle
-- Model & Vectorizer: Dilatih dari proyek analisis sentimen Yelp oleh Bayan
-- Pengembangan Aplikasi: Oleh Bayan sebagai eksplorasi NLP, klasifikasi teks, dan chatbot interaktif berbasis Streamlit
+## Link deploy
+https://deploy-vfapp589zx4emh6rdt8w9sw.streamlit.app/
 
